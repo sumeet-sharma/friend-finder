@@ -43,20 +43,21 @@ module.exports = function (app) {
         var bestFriendIndex;
         var difference;
 
-        console.log(newFriend);
-
         for (var i = 0; i < friendsArray.length; i++) {
 
             difference = 0;
 
             for (var j = 0; j < newFriend.scores.length; j++) {
-                
+
                 difference += Math.abs(parseInt(friendsArray[i].scores[j]) - parseInt(newFriend.scores[j]));
             };
 
             comparisonResults.push(difference);
             sortedResults.push(difference)
         }
+
+        friendsArray.push(newFriend);
+        console.log(newFriend);
 
         sortedResults.sort(function (a, b) { return a - b });
         console.log(comparisonResults);
@@ -65,17 +66,18 @@ module.exports = function (app) {
         bestFriendPlace = sortedResults[0];
         console.log(bestFriendPlace);
 
-        for(var i=0; i < parseInt(comparisonResults); i++){
-            if(comparisonResults[i] === bestFriendPlace){
+        for (var i = 0; i < comparisonResults.length; i++) {
+            if (comparisonResults[i] === bestFriendPlace) {
                 // display best friend
-                bestFriendIndex = i; 
+                bestFriendIndex = i;
                 console.log(bestFriendIndex)
                 break;
             }
         }
 
-        console.log(friendsArray[bestFriendIndex]);        
-        
+        console.log(friendsArray[bestFriendIndex]);
+
     });
+
 
 };
