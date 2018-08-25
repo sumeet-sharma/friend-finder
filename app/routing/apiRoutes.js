@@ -20,7 +20,48 @@ module.exports = function (app) {
     // ---------------------------------------------------------------------------
 
     app.get("/api/friends", function (req, res) {
-        res.json(friendsArray);
+
+        // var newFriend = req.body;
+        // var comparisonResults = [];
+        // var sortedResults = [];
+        // var bestFriendIndex;
+        // var difference;
+
+        // for (var i = 0; i < friendsArray.length; i++) {
+
+        //     difference = 0;
+
+        //     for (var j = 0; j < newFriend.scores.length; j++) {
+
+        //         difference += Math.abs(parseInt(friendsArray[i].scores[j]) - parseInt(newFriend.scores[j]));
+        //     };
+
+        //     comparisonResults.push(difference);
+        //     sortedResults.push(difference)
+        // }
+
+        // friendsArray.push(newFriend);
+        // console.log(newFriend);
+
+        // sortedResults.sort(function (a, b) { return a - b });
+        // console.log(comparisonResults);
+        // console.log(sortedResults);
+
+        // bestFriendPlace = sortedResults[0];
+        // console.log(bestFriendPlace);
+
+        // for (var i = 0; i < comparisonResults.length; i++) {
+        //     if (comparisonResults[i] === bestFriendPlace) {
+        //         // display best friend
+        //         bestFriendIndex = i;
+        //         console.log(bestFriendIndex)
+        //         break;
+        //     }
+        // }
+
+        // console.log(friendsArray[bestFriendIndex]);
+
+        res.json(newFriend);
     });
 
 
@@ -32,50 +73,52 @@ module.exports = function (app) {
     // Then the server saves the data to the tableData array)
     // ---------------------------------------------------------------------------
 
-    app.post("/api/friends", function (req, res) {
-        // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-        // It will do this by sending out the value "true" have a table
-        // req.body is available since we're using the body-parser middleware
-        //Nested for loop within a for loop to find the difference in scores between new user and other user in friends.js 
-        var newFriend = req.body;
-        var comparisonResults = [];
-        var sortedResults = [];
-        var bestFriendIndex;
-        var difference;
+    // app.post("/api/friends", function (req, res) {
+    //     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
+    //     // It will do this by sending out the value "true" have a table
+    //     // req.body is available since we're using the body-parser middleware
+    //     //Nested for loop within a for loop to find the difference in scores between new user and other user in friends.js 
+    //     var newFriend = req.body;
+    //     var comparisonResults = [];
+    //     var sortedResults = [];
+    //     var bestFriendIndex;
+    //     var difference;
 
-        console.log(newFriend);
+    //     for (var i = 0; i < friendsArray.length; i++) {
 
-        for (var i = 0; i < friendsArray.length; i++) {
+    //         difference = 0;
 
-            difference = 0;
+    //         for (var j = 0; j < newFriend.scores.length; j++) {
 
-            for (var j = 0; j < newFriend.scores.length; j++) {
-                
-                difference += Math.abs(parseInt(friendsArray[i].scores[j]) - parseInt(newFriend.scores[j]));
-            };
+    //             difference += Math.abs(parseInt(friendsArray[i].scores[j]) - parseInt(newFriend.scores[j]));
+    //         };
 
-            comparisonResults.push(difference);
-            sortedResults.push(difference)
-        }
+    //         comparisonResults.push(difference);
+    //         sortedResults.push(difference)
+    //     }
 
-        sortedResults.sort(function (a, b) { return a - b });
-        console.log(comparisonResults);
-        console.log(sortedResults);
+    //     friendsArray.push(newFriend);
+    //     console.log(newFriend);
 
-        bestFriendPlace = sortedResults[0];
-        console.log(bestFriendPlace);
+    //     sortedResults.sort(function (a, b) { return a - b });
+    //     console.log(comparisonResults);
+    //     console.log(sortedResults);
 
-        for(var i=0; i < parseInt(comparisonResults); i++){
-            if(comparisonResults[i] === bestFriendPlace){
-                // display best friend
-                bestFriendIndex = i; 
-                console.log(bestFriendIndex)
-                break;
-            }
-        }
+    //     bestFriendPlace = sortedResults[0];
+    //     console.log(bestFriendPlace);
 
-        console.log(friendsArray[bestFriendIndex]);        
-        
-    });
+    //     for (var i = 0; i < comparisonResults.length; i++) {
+    //         if (comparisonResults[i] === bestFriendPlace) {
+    //             // display best friend
+    //             bestFriendIndex = i;
+    //             console.log(bestFriendIndex)
+    //             break;
+    //         }
+    //     }
+
+    //     console.log(friendsArray[bestFriendIndex]);
+
+    // });
+
 
 };
